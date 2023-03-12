@@ -8,7 +8,7 @@ console.warn('warn'); // 경보
 console.error('error'); // 에러, 사용자 에러, 시스템 에러
 
 // assert
-console.assert(2 === 3, 'not same!');
+console.assert(2 === 3, 'not same!'); // 특정 조건일 때.
 console.assert(2 === 2, 'same!');
 
 // print object
@@ -22,7 +22,7 @@ console.time('for loop');
 for (let i = 0; i < 10; i++) {
   i++;
 }
-console.timeEnd('for loop');
+console.timeEnd('for loop'); // 성능
 
 // counting
 function a() {
@@ -43,4 +43,4 @@ function f3() {
   console.log('f3');
   console.trace();
 }
-f1();
+f1(); // 디버깅

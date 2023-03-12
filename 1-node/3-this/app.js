@@ -1,6 +1,6 @@
 function hello() {
   console.log(this);
-  console.log(this === global);
+  console.log(this === global); // true
 }
 
 hello();
@@ -21,4 +21,4 @@ a.memberFunction();
 
 console.log('--- global scope ---');
 console.log(this);
-console.log(this === module.exports);
+console.log(this === module.exports); //true

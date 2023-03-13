@@ -8,4 +8,4 @@ class Logger extends EventEmitter {
   }
 }
 
-module.exports.Logger = Logger;
+module.exports.Logger = Logger; // 외부에서 쓸 수 있도록 만들어준다.

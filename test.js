@@ -1,27 +1,18 @@
-// Fixed-size chuck of memory
-// array of integers, byte of data
-const fs = require('fs');
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-const buf = Buffer.from('Hi');
-console.log(buf); // 유니코드 형태로 출력된다.
-// 별도로 인코딩을 지정하지 않으면 UTF-8 인코딩 방식을 쓰게 됨
-// * If provided, the {encoding} parameter identifies the character encoding.
-// * If not provided, {encoding} defaults to 'utf8'.
-console.log(buf.length);
-console.log(buf[0]); // 배열에 있는 형태로 접근하면 ASCII code 출력이 된다.
-console.log(buf[1]);
-console.log(buf.toString());
+const callback1 = (args) => {
+  console.log('first callback - ', args);
+};
+emitter.on('ellie', callback1); // 특정 이벤트가 들어왔을 때 수행할 콜백을 줌.
 
-// create
-const buf2 = Buffer.alloc(2); // 공간을 확보하고 초기화시켜줌
-const buf3 = Buffer.allocUnsafe(2); // fast , 초기화는 시키지 않음
-console.log(buf2);
-buf2[0] = 72;
-buf2[1] = 105;
-buf2.copy(buf3);
-console.log(buf2.toString());
-console.log(buf3.toString());
+emitter.on('ellie', (args) => {
+  console.log('second callback - ', args);
+});
 
-// concat
-const newBuf = Buffer.concat([buf, buf2, buf3]);
-console.log(newBuf.toString());
+emitter.emit('ellie', { message: 1 }); // 임의로 이벤트를 발생시켜 줄 수 있다.
+emitter.emit('ellie', { message: 2 });
+emitter.removeAllListeners(); // 모든 이벤트에 대하여 콜백을 제거
+emitter.emit('ellie', { message: 3 }); // 콜백이 제거되어 3은 출력이 안된다.
+
+// 이벤트에 관심있는 콜백함수를 만들어 두고 특정 이벤트를 발생시켜 줄 수 있다.

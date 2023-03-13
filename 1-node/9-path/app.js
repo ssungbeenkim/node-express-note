@@ -5,7 +5,9 @@ const path = require('path');
 
 console.log(__dirname);
 console.log(__filename);
+// 노드는 __filename, __dirname 이라는 키워드로 경로에 대한 정보를 제공한다.
 // 운영체제에 상관없이 잘 동작할 수 있도록 프로그램을 만드는것이 중요하다.
+// 파일에 __filename, __dirname 변수를 넣어두면 실행시 현재 파일명과 파일 경로로 바뀐다
 
 console.log(path.sep); // 경로 구분자
 console.log(path.delimiter); // 환경변수 구분자
@@ -31,7 +33,7 @@ console.log(str);
 
 // isAbsolute 절대경로인지 확인
 console.log('isAbsolute?', path.isAbsolute(__dirname)); // /Users/
-console.log('isAbsolute?', path.isAbsolute('../'));
+console.log('isAbsolute?', path.isAbsolute('../')); //상대경로
 
 // normalize
 console.log(path.normalize('./folder////////sub')); // 알아서 수정

@@ -1,21 +1,25 @@
 const fs = require('fs');
 
 const readStream = fs.createReadStream('./file.txt', {
-  //   highWaterMark: 8, // 64 kbytes
-  //   encoding: 'utf-8',
+  // highWaterMark: 8, // 64 kbytes이 기본값, 어느 정도씩 처리를 해 줄지.
+  encoding: 'utf-8',
 });
 
 const beforeMem = process.memoryUsage().rss;
 const data = [];
-readStream.once('data', (chunk) => {
+readStream.on('data', (chunk) => {
   // console.log(chunk);
   data.push(chunk);
-  console.count('data');
-  readStream.close();
+  // console.count('data');
+  // readStream.close();
+});
+
+readStream.on('end', () => {
+  // console.log(data);
 });
 
 readStream.on('close', () => {
-  console.log(data.join(''));
+  // console.log(data.join(''));
   // calculate
   const afterMem = process.memoryUsage().rss;
   const diff = afterMem - beforeMem;

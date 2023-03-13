@@ -9,7 +9,7 @@ fs.readFile('./text.txt', 'utf8') //인코딩 해주지 않으면 버퍼 형태�
 fs.writeFile('./file.txt', 'Hello, Dream Coders! :) ') // 아무것도 리턴되지 않지만
   .catch(console.error); // Void 리턴이므로 에러 발생 대비하여캐치는 꼭 해주기
 
-fs.appendFile('./file.txt', 'Yo!, Dream Coders! :) ') // 기존의 데이터 유지
+fs.appendFile('./file.txt', 'Yo!, Dream Coders! :) ') // 기존의 데이터 유지 후 추가
   .catch(console.error);
 
 // copy

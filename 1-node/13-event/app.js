@@ -12,5 +12,5 @@ emitter.on('ellie', (args) => {
 
 emitter.emit('ellie', { message: 1 });
 emitter.emit('ellie', { message: 2 });
-emitter.removeAllListeners();
+emitter.removeAllListeners(); // 모든 이벤트에 대하여 콜백을 제거
 emitter.emit('ellie', { message: 3 });

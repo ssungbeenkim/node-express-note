@@ -1,10 +1,13 @@
 const fs = require('fs');
 
 // 모든 API는 3가지 형태로 제공 되어진다.
-// rename(...., callback(error, data)) 비동기
-// renameSync(....) // 블럭킹. 끝날때까지 다음줄로 넘어가지 않는다.
-// try { renameSync(....) } catch(e) { } // 항상 try와 catch로 감싸주어야 한다.
-// promises.rename().then().catch(0)
+
+// rename(...., callback(error, data)) 비동기. 필요한 일을 다 한 후 콜백을 호출
+
+// renameSync(....) // 블럭킹. 끝날때까지 다음줄로 넘어가지 않는다. 콜백없음.
+//  ㄴ try { renameSync(....) } catch(e) { } // 항상 try와 catch로 감싸주어야 한다.
+
+// promises.rename().then().catch(0) 프로미스의 형태로 사용이 가능
 
 try {
   fs.renameSync('./text.txt', './text-new.txt');
@@ -18,7 +21,7 @@ fs.rename('./text-new.txt', './text.txt', (error) => {
 });
 console.log('hello');
 
-fs.promises
+fs.promises //프로미스의 형태로 사용이 가능하다.
   .rename('./text2.txt', './text-new.txt') //
   .then(() => console.log('Done!'))
   .catch(console.error);

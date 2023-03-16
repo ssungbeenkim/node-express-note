@@ -4,7 +4,6 @@ const os = require('os');
 
 const folder = process.argv[2]; // 실행 인자를 받아오기
 const workingDir = path.join(os.homedir(), 'Pictures', folder);
-// console.log(fs.existsSync('/Users/wandakim/Pictures/test')); // 경로 존재하는지 확인
 if (!folder || !fs.existsSync(workingDir)) {
   console.error('Please enter folder name in Pictures');
 }

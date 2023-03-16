@@ -20,6 +20,6 @@ fs.copyFile('./file.txt', './file2.txt') // 파일에 아무런 내용이 없다
 fs.mkdir('sub-folder') //
   .catch(console.error);
 
-fs.readdir('./') // 배열의 형태로 파일과 폴더의 이름이 리턴된다.
+fs.readdir('./') // 배열의 형태로 경로에 존재하는 파일과 폴더의 이름이 리턴된다.
   .then(console.log)
   .catch(console.error);

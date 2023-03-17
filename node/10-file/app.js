@@ -16,7 +16,6 @@ try {
 }
 
 fs.rename('./text-new.txt', './text.txt', (error) => {
-  // 비동기
   console.log(error);
 });
 console.log('hello');

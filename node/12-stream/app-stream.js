@@ -8,6 +8,7 @@ const readStream = fs.createReadStream('./file.txt', {
 const beforeMem = process.memoryUsage().rss;
 const data = [];
 readStream.on('data', (chunk) => {
+  // readStream에서 데이터가 들어오면 콜백 호출.
   // console.log(chunk);
   data.push(chunk);
   // console.count('data');

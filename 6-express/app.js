@@ -9,7 +9,11 @@ app.get('/sky/:id', (req, res, next) => {
   console.log(req.params.id);
   console.log(req.query);
   console.log(req.query.keyword);
-  res.send('hi!');
+  // res.send('hi!');
+  // res.json({ name: 'vincent' });
+  // res.sendStatus(400);
+  res.setHeader('key', 'value');
+  res.status(201).send('created');
 });
 
 app.listen(8081); // 특정 포트에서 듣기

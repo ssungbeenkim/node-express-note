@@ -20,6 +20,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { 'content-Type': 'application/json' });
       res.end(JSON.stringify(courses));
     } else if (method === 'POST') {
+      // postman 이용 POST request 요청할 수 있다.
       const body = [];
       req.on('data', (chunk) => {
         body.push(chunk);
@@ -36,3 +37,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(8080);
+// 메모리에 데이터가 보관된다.
+// 다음 예제에서 database와 express를 사용할 예정.

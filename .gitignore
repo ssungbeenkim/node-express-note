@@ -1,4 +1,5 @@
 /test.js
-npm/node_modules/
-node-server/node_modules/
-npm/*.json
+2-npm/node_modules/
+5-node-server/node_modules/
+2-npm/*.json
+6-express/node_modules/

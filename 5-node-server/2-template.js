@@ -6,7 +6,7 @@ const ejs = require('ejs');
 
 const name = 'Ellie';
 const courses = [
-  // 실제로 사용한다면 데이터베이스에 저장해 두고 사용할 것
+  // 실제로 사용한다면 데이터베이스에 저장해 두고 사용할 것이지만 예시임.
   { name: 'HTML' },
   { name: 'CSS' },
   { name: 'JS' },

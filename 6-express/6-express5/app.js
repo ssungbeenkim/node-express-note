@@ -3,8 +3,15 @@ import fsAsync from 'fs/promises';
 
 const app = express();
 
-app.get('/', (req, res, next) => {
-  return fsAsync.readFile('/file2.txt').catch(next);
+app.get('/file2', (req, res, next) => {
+  return fsAsync
+    .readFile('/file2.txt') // 리턴하지 않으면 에러 처리되지 않는다. 혹은 콜백 앞에 async 붙여주기
+    .then((data) => res.send(data));
+});
+
+app.get('/file3', async (req, res) => {
+  const data = await fsAsync.readFile('/file2.txt');
+  res.send(data); // 에러가 처리되고 있다.
 });
 
 app.use((error, req, res, next) => {

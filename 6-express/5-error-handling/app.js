@@ -16,7 +16,6 @@ app.get('/file1', (req, res) => {
   //     res.sendStatus(404); // good
   //   }
   // });
-
   // 2. 동기적인 경우
   try {
     const data = fs.readFileSync('/file1.txt');
@@ -45,7 +44,7 @@ app.get('/file3', async (req, res) => {
 });
 
 // 버전 5 이하에서는: require('express-async-errors'); 라이브러리가 있다.
-// 에러행들링 개별적으로 해주는게 best.
+// but 에러핸들링을 개별적으로 해주는게 best.
 
 // Express 5 부터는 이렇게 // 버전 5부터는 promise또한 이렇게 작성해도 에러핸들러에서 잡힌다.
 

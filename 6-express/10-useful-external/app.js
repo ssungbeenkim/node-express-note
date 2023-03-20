@@ -24,8 +24,10 @@ const corsOptions = {
 
 app.use(cookieParser()); // http://expressjs.com/en/resources/middleware/cookie-parser.html
 app.use(morgan('common')); // http://expressjs.com/en/resources/middleware/morgan.html
+//-> 등록만 해 주면 req 올때마다 로그가 출력된다. 어떤 요청이 왔는지 모니터링 할 때 유용
 app.use(cors(corsOptions)); // options 전달하지 않으면 어떤 주소에서 접속하든 데이터를 다 보여준다. 헤더에 "Access-Control-Allow-Origin: *"로 설정됨
 app.use(helmet()); // https://github.com/helmetjs/helmet
+// -> 공통적으로 보안에 필요한 헤더들을 추가해준다. X-....
 
 app.get('/', (req, res) => {
   console.log(req.cookies); // it will be undefined without cookie-parser

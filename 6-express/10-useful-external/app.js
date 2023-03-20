@@ -9,7 +9,7 @@ const app = express();
 
 // cookie-parser
 // morgan
-// cors
+// cors -> Access-Control-Allow-Origin 헤더 설정 안해주어도 자동으로 해준다.
 // helmet
 
 // cookie-parser
@@ -17,14 +17,14 @@ const app = express();
 // value: yummy_cookie=choco; tasty_cookie=strawberry
 
 const corsOptions = {
-  origin: ['http://localhost:3000'],
-  optionsSuccessStatus: 200, // for options request
-  credentials: true, // Access-Control-Allow-Credentials: true
+  origin: ['http://localhost:3000'], // 해당 도메인에서만 사용이 가능
+  optionsSuccessStatus: 200, // for options request, 200으로 자동으로 응답하도록
+  credentials: true, // Access-Control-Allow-Credentials: true , 헤더에 토큰이나 사용자 정보를 추가 허용
 };
 
 app.use(cookieParser()); // http://expressjs.com/en/resources/middleware/cookie-parser.html
 app.use(morgan('common')); // http://expressjs.com/en/resources/middleware/morgan.html
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); // options 전달하지 않으면 어떤 주소에서 접속하든 데이터를 다 보여준다. 헤더에 "Access-Control-Allow-Origin: *"로 설정됨
 app.use(helmet()); // https://github.com/helmetjs/helmet
 
 app.get('/', (req, res) => {

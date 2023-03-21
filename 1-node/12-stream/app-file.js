@@ -3,7 +3,7 @@ const fs = require('fs');
 // 💩
 const beforeMem = process.memoryUsage().rss; // 메모리 상태를 저장
 fs.readFile('./file.txt', (_, data) => {
-  fs.writeFile('./file2.txt', data, () => {}); // 파일을 다 읽은 후 새로운 파일에 저장
+  fs.writeFile('./file2.txt', data, () => {}); // 파일을 동기적으로 다 읽은 후 새로운 파일에 저장
   // calculate
   const afterMem = process.memoryUsage().rss; // 수행 후 메모리 상태를 저장
   const diff = afterMem - beforeMem;

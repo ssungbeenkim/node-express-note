@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   // res.setHeader()는 HTTP 응답 헤더를 설정하는 메서드이며,
   // 이 메서드를 호출하면 기본적으로 HTTP 상태 코드는 200 OK로 설정된다.
   if (url === '/') {
-    // 아무 경로도 없다면
+    // 아무 경로도 없다면(그냥 로컬호스트 경로로 접근할시)
     fs.createReadStream('./html/index.html').pipe(res); // ?res 연결해주는 부분이 낯설다
   } else if (url === '/courses') {
     fs.createReadStream('./html/courses.html').pipe(res);

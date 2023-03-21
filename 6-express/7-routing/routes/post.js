@@ -7,6 +7,7 @@ router.use((req, res, next) => {
   next();
 });
 
+// 라우터를 사용하여 상위 경로를 제외하고 사용 가능, app.js에서 흐름을 파악하기가 쉽다.
 router.get('/', (req, res) => {
   res.status(201).send('GET: /posts');
 });

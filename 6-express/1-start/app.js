@@ -8,10 +8,11 @@ app.get('/', (req, res, next) => {
 
 app.get('/hello', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json({ name: 'Ellie', age: 0 });
+  res.status(200).json({ name: 'Vincent', age: 27 });
 });
 
 app.use((req, res, next) => {
+  // 지정하지 않은경로로 요청이 왔을 때 처리해 준다.
   res.setHeader('node-course', 'special middleware');
   next();
 });

@@ -3,8 +3,6 @@ import express from 'express';
 const app = express();
 
 // 반복되는 느낌을 지울 수 없다.
-// 라우터? 를 사용하면 된다.
-
 app.use(express.json());
 
 app.get('/posts', (req, res) => {
@@ -24,3 +22,4 @@ app.delete('/posts/:id', (req, res) => {
 });
 
 app.listen(8080);
+// 라우터 를 사용하면 된다!

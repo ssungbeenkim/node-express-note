@@ -17,9 +17,9 @@ function getCount() {
 module.exports.getCount = getCount;
 module.exports.increase = increase;
 console.log(module.exports === exports); // true
-// exports = {};
-// console.log(module.exports === exports);
-// exports.increase = increase; // 위의 것과 엄밀히 다르다.
+/* exports = {};
+console.log(module.exports === exports);
+exports.increase = increase; // 위의 것과 엄밀히 다르다. */
 /* 
 exports에 다른 값을 할당하면 위험할 수 있다. 
 처음에는 module.exports === exports true 이지만 

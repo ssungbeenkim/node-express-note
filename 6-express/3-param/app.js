@@ -3,21 +3,23 @@ import express from 'express';
 const app = express();
 
 app.get('/posts', (req, res) => {
-  console.log('handling for /post');
-  console.log('path: ', req.path);
-  console.log('params: ', req.params);
-  console.log('query: ', req.query);
+  //localhost:8080/posts/?keyword=vincent
+  http: console.log('handling for /posts');
+  console.log('path: ', req.path); ///posts/
+  console.log('params: ', req.params); //{}
+  console.log('query: ', req.query); //{ keyword: 'vincent' }
   if (req.query) {
     console.log('searching for: ', req.query.search, req.query.max);
   }
   res.sendStatus(200);
 });
-
 app.get('/posts/:id', (req, res) => {
-  console.log('handling for /post/:id');
-  console.log('path: ', req.path);
-  console.log('params: ', req.params);
-  console.log('query: ', req.query);
+  // http://localhost:8080/posts/vincent/?keyword=vincent
+  console.log('handling for /posts/:id');
+  console.log('path: ', req.path); //  /posts/vincent/
+  console.log('params: ', req.params); //{ id: 'vincent' }
+  console.log('query: ', req.query); //{ keyword: 'vincent' }
+  console.log(req.query.keyword); // vincent
   if (req.params) {
     console.log('id is ', req.params.id);
   }

@@ -43,4 +43,15 @@ function f3() {
   console.log('f3');
   console.trace();
 }
+/* Trace
+    at f3 (/Users/wandakim/Projects/nodejsStudy/test.js:10:11)
+    at f2 (/Users/wandakim/Projects/nodejsStudy/test.js:6:3)
+    at f1 (/Users/wandakim/Projects/nodejsStudy/test.js:3:3)
+    at Object.<anonymous> (/Users/wandakim/Projects/nodejsStudy/test.js:12:1)
+    at Module._compile (node:internal/modules/cjs/loader:1254:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+    at Module.load (node:internal/modules/cjs/loader:1117:32)
+    at Module._load (node:internal/modules/cjs/loader:958:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47 */
 f1(); // 디버깅

@@ -18,9 +18,9 @@ const server = http.createServer((req, res) => {
   if (url === '/courses') {
     if (method === 'GET') {
       res.writeHead(200, { 'content-Type': 'application/json' });
-      res.end(JSON.stringify(courses));
+      res.end(JSON.stringify(courses)); // end -> final chunk of data to be written before closing stream.
     } else if (method === 'POST') {
-      // postman 이용 POST request 요청할 수 있다.
+      // postman 이용 POST request 요청
       const body = [];
       req.on('data', (chunk) => {
         body.push(chunk);

@@ -17,17 +17,23 @@ const app = express();
 // value: yummy_cookie=choco; tasty_cookie=strawberry
 
 const corsOptions = {
-  origin: ['http://localhost:3000'], // 해당 도메인에서만 사용이 가능
+  origin: ['http://localhost:5500'], // 해당 도메인에서만 CORS policy 를 허용할 수 있음
   optionsSuccessStatus: 200, // for options request, 200으로 자동으로 응답하도록
-  credentials: true, // Access-Control-Allow-Credentials: true , 헤더에 토큰이나 사용자 정보를 추가 허용
+  credentials: true,
+  // Access-Control-Allow-Credentials: true , 헤더에 토큰이나 사용자 정보를 추가하는 허용
 };
 
 app.use(cookieParser()); // http://expressjs.com/en/resources/middleware/cookie-parser.html
+// req.cookies를 출력하면 기본적으로 undefined 가 나옴. 쿠키에 접근 가능하게 해준다.
+
 app.use(morgan('common')); // http://expressjs.com/en/resources/middleware/morgan.html
-//-> 등록만 해 주면 req 올때마다 로그가 출력된다. 어떤 요청이 왔는지 모니터링 할 때 유용
-app.use(cors(corsOptions)); // options 전달하지 않으면 어떤 주소에서 접속하든 데이터를 다 보여준다. 헤더에 "Access-Control-Allow-Origin: *"로 설정됨
+//-> 등록만 해 주면 req 올때마다 로그가 출력된다. 어떤 요청이 왔는지, 얼마나 걸렸는지 모니터링 할 때 유용. 포맷을 지정할 수 있는 옵션이 있음. 위 링크 보기.
+
+app.use(cors(corsOptions)); // 사용하는 미들웨어를 한눈에 보기 위해서 밖으로 빼줌.
+// options 전달하지 않으면 어떤 주소에서 접속하든 데이터를 다 보여준다. 자동으로 헤더에 "Access-Control-Allow-Origin: *"로 설정됨
+
 app.use(helmet()); // https://github.com/helmetjs/helmet
-// -> 공통적으로 보안에 필요한 헤더들을 추가해준다. X-....
+// -> 공통적으로 보안에 필요한 헤더들을 자동으로 추가해준다. X-....
 
 app.get('/', (req, res) => {
   console.log(req.cookies); // it will be undefined without cookie-parser

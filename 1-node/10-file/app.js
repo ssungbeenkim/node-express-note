@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// 모든 API는 3가지 형태로 제공 되어진다.
+// 모든 API는 3가지 형태로 제공됨.
 
 // rename(...., callback(error, data)) 비동기. 필요한 일을 다 한 후 콜백을 호출
 

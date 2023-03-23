@@ -1,9 +1,11 @@
 import express from 'express';
 
+// 쿼리는 모든 주소에서 받을 수 있음.
+
 const app = express();
 
 app.get('/posts', (req, res) => {
-  //localhost:8080/posts/?keyword=vincent
+  //localhost:8080/posts/?keyword=vincent // id 없이 들어온 주소.
   http: console.log('handling for /posts');
   console.log('path: ', req.path); ///posts/
   console.log('params: ', req.params); //{}
@@ -14,7 +16,7 @@ app.get('/posts', (req, res) => {
   res.sendStatus(200);
 });
 app.get('/posts/:id', (req, res) => {
-  // http://localhost:8080/posts/vincent/?keyword=vincent
+  // http://localhost:8080/posts/vincent/?keyword=vincent // id 있는 주소
   console.log('handling for /posts/:id');
   console.log('path: ', req.path); //  /posts/vincent/
   console.log('params: ', req.params); //{ id: 'vincent' }

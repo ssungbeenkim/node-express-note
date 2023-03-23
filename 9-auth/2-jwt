@@ -1,0 +1,39 @@
+const jwt = require('jsonwebtoken');
+
+const token = jwt.sign(
+  {
+    id: 'userId',
+    isAdmin: true, // payload 너무 커지면 네트워크 데이터를 많이 소모할 수 있으니 필수적인 것만.
+  },
+  'slDI#ksKJD&akajSIE@#$A@G^$'
+);
+console.log(token); //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXJJZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3OTU4MTMwM30.htZQDc0AbNzSDXh8r2yVAr8BZVSdi2lrA2cshi_SwQk
+
+// https://jwt.io 에서 토큰 해독을 해 볼 수 있다.
+const secret = 'slDI#ksKJD&akajssdsSIE@#$A@G^$';
+
+const token2 = jwt.sign(
+  {
+    id: 'Vincent',
+    isAdmin: false,
+  },
+  secret,
+  { expiresIn: 2 } // 특정 시간이 지나면 토큰이 유효하지 않토록 만들 수 있음
+);
+
+setTimeout(() => {
+  jwt.verify(token2, secret, (error, decoded) => {
+    console.log(error, decoded);
+  });
+}, 3000); // TokenExpiredError: jwt expired
+
+// const edited =
+//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZpbmNlbnQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2Nzk1ODE0OTV9.47GeCBNjIJNVURW2l45ikERAhdBThJCXpGFt-PAtR1U';
+// // 임의로 isAdmin: true로 변경한 토큰이다.
+// jwt.verify(edited, secret, (error, decoded) => {
+//   console.log(error, decoded); // JsonWebTokenError: invalid signature
+// });
+
+jwt.verify(token2, secret, (error, decoded) => {
+  console.log(error, decoded);
+}); //null { id: 'Vincent', isAdmin: false, iat: 1679581853 }

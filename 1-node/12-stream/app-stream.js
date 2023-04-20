@@ -6,9 +6,9 @@ const readStream = fs.createReadStream('./file.txt', {
 });
 
 const beforeMem = process.memoryUsage().rss;
-const data = [];
+const data = []; //
 readStream.on('data', (chunk) => {
-  // readStream에서 데이터가 들어오면 콜백 호출.
+  // data 이벤트는 데이터가 들어올 때마다 발생, readStream에서 데이터가 들어오면 콜백 호출.
   // console.log(chunk);
   data.push(chunk);
   // console.count('data');
@@ -16,11 +16,14 @@ readStream.on('data', (chunk) => {
 });
 
 readStream.on('end', () => {
+  // end 이벤트는 모든 데이터를 다 읽은 후 발생
   // console.log(data);
 });
 
 readStream.on('close', () => {
+  // close 이벤트는 스트림을 닫은 후 발생
   // console.log(data.join(''));
+
   // calculate
   const afterMem = process.memoryUsage().rss;
   const diff = afterMem - beforeMem;
@@ -29,5 +32,6 @@ readStream.on('close', () => {
   console.log(`Consumed Memory: ${consumed}MB`);
 });
 readStream.on('error', (error) => {
+  // error 이벤트는 에러가 발생했을 때 발생
   console.log(error);
 });

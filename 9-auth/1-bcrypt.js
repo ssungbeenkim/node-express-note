@@ -5,7 +5,7 @@ const hashed = bcrypt.hashSync(password, 10);
 console.log(`password: ${password}, hashed: ${hashed}`);
 // 암호화 과정은 cpu를 사용한다. 서버에 따라 다르지만 8~12 정도를 추천한다.
 
-const result = bcrypt.compareSync('abcd123s4', hashed);
+const result = bcrypt.compareSync('abcd1234', hashed);
 // console.log(result); // false
 
 // bcript를 사용하면 password를 좀더 안전하게 보관할 수 있다.

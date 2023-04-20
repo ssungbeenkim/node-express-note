@@ -23,7 +23,7 @@ const token2 = jwt.sign(
 
 setTimeout(() => {
   jwt.verify(token2, secret, (error, decoded) => {
-    console.log(error, decoded);
+    console.log(error, decoded); // 토큰과 시크릿키로 자격이 유효한지 증명한다.
   });
 }, 3000); // TokenExpiredError: jwt expired
 

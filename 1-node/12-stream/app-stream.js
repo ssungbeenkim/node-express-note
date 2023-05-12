@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+/* 체이닝 가능하다. */
+
 const readStream = fs.createReadStream('./file.txt', {
   // highWaterMark: 8, // 64 kbytes이 기본값, 어느 정도씩 처리를 해 줄지.
   encoding: 'utf-8',
@@ -18,6 +20,7 @@ readStream.on('data', (chunk) => {
 readStream.on('end', () => {
   // end 이벤트는 모든 데이터를 다 읽은 후 발생
   // console.log(data);
+  console.log(data.join(''));
 });
 
 readStream.on('close', () => {

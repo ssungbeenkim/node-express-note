@@ -1,5 +1,4 @@
 function hello() {
-  console.log('--- function ---');
   console.log(this);
   console.log(this === global); // true
 }

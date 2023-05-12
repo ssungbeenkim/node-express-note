@@ -11,4 +11,3 @@
   "author": "",
   "license": "ISC"
 }
-// node 에서 Javascript의 export 시스템을 사용하려면 npm init 후 package.json에서 type을 바꿔주어야 한다. 

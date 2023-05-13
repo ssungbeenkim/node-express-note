@@ -3,7 +3,7 @@ const emitter = new EventEmitter(); //
 
 const callback1 = (args) => {
   console.log('first callback - ', args);
-};
+}; // args에는 { message: 1 } 이 들어온다.
 emitter.on('ellie', callback1); // 특정 이벤트가 들어왔을 때 수행할 콜백 등록.
 
 emitter.on('ellie', (args) => {

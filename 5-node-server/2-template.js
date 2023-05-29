@@ -1,5 +1,5 @@
-// ejs를 사용할 수도 있지만 실제로는 react와 next.js를 활용하여 더 화려하고 심플하게
-// server side rendering을 할 수 있다.
+// vanila js를 쓸 때는 ejs등의 템플릿 엔진을 사용해 서버사이드 렌더링을 할 수 있지만
+// 보편적으로는 react와 next.js를 활용하여 더 화려하고 심플하게 한다.
 const http = require('http');
 const fs = require('fs');
 const ejs = require('ejs');

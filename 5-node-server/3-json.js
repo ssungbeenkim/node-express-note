@@ -29,6 +29,7 @@ const server = http.createServer((req, res) => {
         const bodyStr = Buffer.concat(body).toString();
         const course = JSON.parse(bodyStr);
         courses.push(course);
+        console.log(course);
         res.writeHead(201);
         res.end();
       });

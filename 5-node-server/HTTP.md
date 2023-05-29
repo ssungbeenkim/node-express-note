@@ -17,7 +17,7 @@
 ## Request Method
 
 - URL: Uniform Resource Locator
-  - protocol/hostname/(port)/pathname/query
+  - protocol/hostname(,port)/pathname/query
 - [RequestMethods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - Read : GET, HEAD, OPTIONS, TRACE
 - UPDATE : POST, PUT, DELETE, PATCH

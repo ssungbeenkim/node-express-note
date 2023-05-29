@@ -33,7 +33,6 @@ app.get(
     next();
   }
 );
-ㅈ;
 app.get('/', (req, res, next) => {
   // console.log('second');
 });

@@ -12,8 +12,9 @@ HTML form에서 submit 하면 발생되는 request에서 전달되는 data를 �
 옵션 필수 
 */
 
-app.use(express.static('public'));
+app.use(express.static('public')); // public 폴더 안에 있는 리소스를 자동으로 보내줄 수 있다.
 /* /index.html 또는 /image.png로 요청이 오면 해당 폴더만 등록해도 자동처리 해줌
+다양한 옵션 전달 가능
 ->app.get('/index.html', ....) 이렇게 작성해 줄 필요가 없다. */
 
 app.use(express.json());

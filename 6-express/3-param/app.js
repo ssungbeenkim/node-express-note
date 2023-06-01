@@ -1,7 +1,5 @@
 import express from 'express';
-
 // 쿼리는 모든 주소에서 받을 수 있음.
-
 const app = express();
 
 app.get('/posts', (req, res) => {

@@ -10,6 +10,7 @@ app.get('/file2', (req, res, next) => {
 });
 
 app.get('/file3', async (req, res) => {
+  // 등록한 콜백이 async임을 알기에 에러 핸들링이 된다.
   const data = await fsAsync.readFile('/file2.txt');
   res.send(data); // 에러가 처리되고 있다.
 });

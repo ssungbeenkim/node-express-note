@@ -1,14 +1,14 @@
+// https://expressjs.com/en/4x/api.html
 import express from 'express';
 
 const app = express();
-
 app.get('/', (req, res, next) => {
   res.send('<h1>Index page</h1>');
 });
 
 app.get('/hello', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json({ name: 'Vincent', age: 27 });
+  res.status(200).json({ name: 'Vincent', age: 20 });
 });
 
 app.use((req, res, next) => {
